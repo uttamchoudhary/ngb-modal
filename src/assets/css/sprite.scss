@@ -1,0 +1,98 @@
+$sprite-url: "../images/sprite.png";
+[class^="icon-"] {
+    background: url($sprite-url) no-repeat;
+    display: inline-block;
+}
+
+.icon-navigate-left {
+    background-position: 0 -4px;
+    width: 23px;
+    height: 24px;
+    background-size: 50%;
+}
+
+.icon-navigate-right {
+    background-position: -29px -4px;
+    width: 23px;
+    height: 24px;
+}
+
+.icon-details {
+    background-position: -59px -5px;
+    width: 5px;
+    height: 24px;
+}
+
+.icon-search-icon {
+    background-position: -75px -9px;
+    width: 17px;
+    height: 17px;
+}
+
+.icon-active-hiring-tab {
+    background-position: -103px -5px;
+    width: 21px;
+    height: 22px;
+}
+
+.icon-active-my-tab {
+    background-position: -134px -6px;
+    width: 23px;
+    height: 22px;
+}
+
+.icon-active-panel-tab {
+    background-position: -164px -7px;
+    width: 25px;
+    height: 21px;
+}
+
+.icon-hiring-tab {
+    background-position: -194px -7px;
+    width: 21px;
+    height: 21px;
+}
+
+.icon-my-tab {
+    background-position: -221px -8px;
+    width: 23px;
+    height: 21px;
+}
+
+.icon-panel-tab {
+    background-position: -248px -8px;
+    width: 25px;
+    height: 22px;
+}
+
+.icon-dropdown {
+    background-position: -279px -11px;
+    width: 13px;
+    height: 13px;
+}
+
+.icon-add-interview {
+    background-position: -302px 0px;
+    width: 43px;
+    height: 38px;
+}
+
+.icon-calendar {
+    background-position: -351px -13px;
+    width: 15px;
+    height: 16px;
+}
+
+.icon-upload {
+    background-position: -373px -15px;
+    width: 11px;
+    height: 14px;
+}
+
+.icon-picknew {
+    background-position: -396px -3px;
+    width: 46px;
+    height: 34px;
+}
+
+@media only screen and (min-width: 768px) {}

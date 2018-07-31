@@ -1,1 +1,205 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.switch {
+    label {
+        cursor: pointer;
+        input[type=checkbox] {
+            display: none;
+        }
+        .lever {
+            background-color: #dbdbdb;
+            border-radius: 15px;
+            content: "";
+            display: inline-block;
+            height: 14px;
+            margin: 0 16px;
+            position: relative;
+            transition: background .3s ease 0s;
+            vertical-align: middle;
+            width: 34px;
+            &::after {
+                background-color: #a6a6a6;
+                border-radius: 21px;
+                content: "";
+                display: inline-block;
+                height: 20px;
+                left: -3px;
+                position: absolute;
+                top: -3px;
+                transition: left .3s ease 0s, background .3s ease 0s, box-shadow .1s ease 0s;
+                width: 20px;
+                -ms-box-shadow: 0 0 1px 0 rgba(0, 0, 0, .12), 0 1px 1px 0 rgba(0, 0, 0, .24);
+                -o-box-shadow: 0 0 1px 0 rgba(0, 0, 0, .12), 0 1px 1px 0 rgba(0, 0, 0, .24);
+                box-shadow: 0 0 1px 0 rgba(0, 0, 0, .12), 0 1px 1px 0 rgba(0, 0, 0, .24);
+            }
+        }
+        input[type=checkbox]:checked+.lever {
+            background-color: #6ec8ec!important;
+            &:after {
+                background-color: #007bff!important;
+                left: 18px;
+            }
+        }
+    }
+}
+
+.m-l-61 {
+    margin-left: 61%;
+}
+
+.m-l-60 {
+    margin-left: 60%;
+}
+
+.custom-popover {
+    width: 300px;
+    background: #17a2b8;
+    span {
+        color: #fff !important;
+    }
+    &.bs-popover-top {
+        .arrow {
+            &::after {
+                border-top-color: #17a2b8;
+            }
+            &::before {
+                border-top-color: #17a2b8;
+            }
+        }
+    }
+    &.bs-popover-right {
+        .arrow {
+            &::after {
+                border-right-color: #17a2b8;
+            }
+            &::before {
+                border-right-color: #17a2b8;
+            }
+        }
+    }
+    &.bs-popover-bottom {
+        .arrow {
+            &::after {
+                border-bottom-color: #17a2b8;
+            }
+            &::before {
+                border-bottom-color: #17a2b8;
+            }
+        }
+    }
+    &.bs-popover-left {
+        .arrow {
+            &::after {
+                border-left-color: #17a2b8;
+            }
+            &::before {
+                border-left-color: #17a2b8;
+            }
+        }
+    }
+}
+
+.fade.in {
+    opacity: 1;
+}
+
+.modal.in .modal-dialog {
+    -webkit-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+}
+
+.modal-backdrop .fade .in {
+    opacity: 0.5 !important;
+}
+
+.modal-backdrop.fade {
+    opacity: 0.5 !important;
+}
+
+//default styles for select
+.dropdown-wrapper {
+    padding: 12px 16px;
+    border: 1px solid rgb(206, 205, 201);
+    cursor: pointer;
+    outline: none;
+    color: rgb(110, 108, 105);
+    &:focus {
+        border: 1px solid #80bdff;
+    }
+    .dropdown {
+        /* Styles */
+        background: #fff;
+        border-radius: 0 0 5px 5px;
+        border: 1px solid rgb(206, 205, 201);
+        border-top: none;
+        box-sizing: border-box;
+        max-height: 400px;
+        border-bottom: 1px solid rgb(206, 205, 201);
+        /* Hover state */
+        .option:hover {
+            color: #d15947;
+        }
+        .option {
+            padding: 0.8em;
+            border-bottom: 1px solid rgb(206, 205, 201);
+            text-decoration: none;
+            color: rgb(110, 108, 105);
+        }
+    }
+}
+
+pre {
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    min-height: 250px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 300px;
+    overflow: auto;
+}
+
+.height-400 {
+    height: 400px;
+    overflow: auto;
+}
+
+.hint-info {
+    position: relative;
+    top: 32px;
+    display: inline-block;
+    margin: 0;
+}
+
+// .code-container {
+//     //
+// }
