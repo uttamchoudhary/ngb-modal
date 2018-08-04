@@ -9,7 +9,7 @@ export class ModalManager {
 
   private globalConfig : ModalConfig = {
     size: "md",
-    modalClass: undefined,
+    modalClass: '',
     hideCloseButton : false,
     centered: false,
     backdrop: true,
@@ -46,16 +46,13 @@ export class ModalManager {
       let componentFactory = this.componentFactoryResolver.resolveComponentFactory(modalInstance);
       this.modalHost.remove();
       let componentRef = this.modalHost.createComponent(componentFactory);
-      setTimeout(() => {
-        componentRef.instance['ModalComponent'].init(config);
-        componentRef.instance['ModalComponent'].open();        
-      })
-      componentRef.instance['onOpen'] = this.closeFactory();
+      componentRef.instance['ModalComponent'].init(config);
+      componentRef.instance['close'] = this.closeFactory();
       componentRef.instance['onClose'] = componentRef.instance['ModalComponent'].onClose;
-      componentRef.instance['close'] = componentRef.instance['ModalComponent'].onOpen;
+      componentRef.instance['onOpen'] = componentRef.instance['ModalComponent'].onOpen;
+      setTimeout(() => componentRef.instance['ModalComponent'].open());
      return componentRef.instance;
     } 
-
   }
 
   close(modalInstance){

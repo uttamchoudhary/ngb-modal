@@ -1,22 +1,29 @@
-import { EventEmitter, ElementRef } from '@angular/core';
+import { OnInit, EventEmitter, ElementRef } from '@angular/core';
 import { ModalManager } from './modal.service';
-import { Observable } from 'rxjs';
-export declare class ModalComponent {
+export declare class ModalComponent implements OnInit {
     private modalManager;
-    opened: EventEmitter<{}>;
-    closed: EventEmitter<{}>;
-    private openObserver;
-    private closeObserver;
-    isOpened: boolean;
+    title: any;
+    size: any;
+    modalClass: any;
+    hideCloseButton: any;
+    centered: any;
+    backdrop: any;
+    animation: any;
+    keyboard: any;
+    closeOnOutsideClick: any;
+    backdropClass: any;
+    onOpen: EventEmitter<{}>;
+    onClose: EventEmitter<{}>;
     modalRoot: ElementRef;
+    isOpened: boolean;
+    private inputSettings;
     settings: any;
     private backdropElement;
     constructor(modalManager: ModalManager);
+    ngOnInit(): void;
     init(config: any): void;
     open(): void;
     close(): void;
     preventClosing(event: MouseEvent): void;
-    onOpen(): Observable<any>;
-    onClose(): Observable<any>;
     private createBackDrop();
 }

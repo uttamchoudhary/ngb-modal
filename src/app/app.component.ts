@@ -40,28 +40,36 @@ export class AppComponent {
   }
 
   asComponent2(){
-    this.currentRef = this.modal.open(ModalComp2, {});
-    this.currentRef['data'] = "uttam"
+    let currentRef = this.modal.open(ModalComp2, {});
+    currentRef['data'] = "uttam";
+    currentRef.onOpen.subscribe(() => {
+      console.log("comp opened");
+    })
+    currentRef.onClose.subscribe(() => {
+      console.log("comp closed");
+    })
     setTimeout(()=> {
-      this.close(this.currentRef)
-    },3000)
+      currentRef.close()
+    },5000)
   }
 
   asTemplate(){
     let ref = this.modal.open(this.modal1, {
-      title: " modal",
       size: "md",
       modalClass: 'mymodal',
       hideCloseButton: false,
       centered: false,
       backdrop: true,
-      animation: false,
+      animation: true,
       keyboard: false,
       closeOnOutsideClick: true,
       backdropClass: "modal-backdrop"
     });
-    ref.onOpen().subscribe((res) => {
-      alert(1);
+    ref.onOpen.subscribe((res) => {
+      console.log("opened template");
+    })
+    ref.onClose.subscribe((res) => {
+      console.log("closed template");
     })
     // setTimeout(()=> {
     //   this.close(ref)

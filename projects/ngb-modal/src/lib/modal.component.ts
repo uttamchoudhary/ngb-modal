@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, OnDestroy, OnChanges, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { ModalManager } from './modal.service';
-import { Subject, Observable } from 'rxjs';
 
 declare var document: any;
 
@@ -20,62 +19,71 @@ declare var document: any;
     }
   }`]
 })
-export class ModalComponent {
+export class ModalComponent implements OnInit {
 
-  // //title of modal
-  // @Input() title;
+  //title of modal
+  @Input() title;
 
-  // //size of modal. sm,lg,md
-  // @Input() size;
+  //size of modal. sm,lg,md
+  @Input() size;
 
-  // //modalClass added to modal dialog
-  // @Input() modalClass;
+  //modalClass added to modal dialog
+  @Input() modalClass;
 
-  // //hide close button
-  // @Input() hideCloseButton;
+  //hide close button
+  @Input() hideCloseButton;
 
-  // //if modal is vertically centered
-  // @Input() centered
+  //if modal is vertically centered
+  @Input() centered
 
-  // //if backdrop is applied on modal
-  // @Input() backdrop
+  //if backdrop is applied on modal
+  @Input() backdrop
 
-  // //if true, animation is added to modal dialog
-  // @Input() animation;
+  //if true, animation is added to modal dialog
+  @Input() animation;
 
-  // //listen to keyboard events
-  // @Input() keyboard;
+  //listen to keyboard events
+  @Input() keyboard;
 
-  // //close on outside click
-  // @Input() closeOnOutsideClick;
+  //close on outside click
+  @Input() closeOnOutsideClick;
 
-  // //custom backdrop class
-  // @Input() backdropClass;
+  //custom backdrop class
+  @Input() backdropClass;
 
-  @Output() public opened = new EventEmitter(false);
-  @Output() public closed = new EventEmitter(false);
+  @Output() public onOpen = new EventEmitter(false);
+  @Output() public onClose = new EventEmitter(false);
+ 
 
-  private openObserver = new Subject<any>();
-  private closeObserver = new Subject<any>();
-  
+  @ViewChild("modalRoot") public modalRoot: ElementRef;
+   
   public isOpened = false;
-
-  @ViewChild("modalRoot")
-  public modalRoot: ElementRef;
+  private inputSettings;
   public settings;
   private backdropElement: HTMLElement;
 
   constructor(private modalManager : ModalManager) {
-    this.settings = {
-      closeOnEscape: true,
-      closeOnOutsideClick: true,
-      hideCloseButton: false,
-      backdrop: true
+  }
+
+  ngOnInit(){
+    this.inputSettings = {
+      title: this.title,
+      size: this.size || "md",
+      modalClass: this.modalClass || '',
+      hideCloseButton : this.hideCloseButton || false,
+      centered: this.centered || false,
+      backdrop: this.backdrop || true,
+      animation : this.animation || true,
+      keyboard: this.keyboard || true,
+      closeOnOutsideClick: this.closeOnOutsideClick || true,
+      backdropClass: this.backdropClass || "modal-backdrop"
     }
   }
 
   init(config) {
-    this.settings = Object.assign({}, this.modalManager.defaults, config);
+    this.onOpen.observers = [];
+    this.onClose.observers = [];
+    this.settings = Object.assign({}, this.modalManager.defaults, this.inputSettings, config);
     this.createBackDrop();
   }
 
@@ -90,9 +98,8 @@ export class ModalComponent {
     window.setTimeout(() => {
       this.modalRoot.nativeElement.classList.add('in');
       this.modalRoot.nativeElement.focus();
-      this.opened.emit();
-      this.openObserver.next(true);
-    }, 0);
+      this.onOpen.emit();
+    }, 100);
   }
 
   close() {
@@ -104,21 +111,12 @@ export class ModalComponent {
     document.body.className = document.body.className.replace(/modal-open\b/, "");
     window.setTimeout(() => {
       this.isOpened = false;
-      this.closed.emit();
-      this.closeObserver.next(true);
+      this.onClose.emit();
     }, 100);
   }
 
   public preventClosing(event: MouseEvent) {
     event.stopPropagation();
-  }
-
-  onOpen(){
-    return this.openObserver.asObservable();
-  }
-
-  onClose(){
-    return this.closeObserver.asObservable();
   }
 
   private createBackDrop() {
