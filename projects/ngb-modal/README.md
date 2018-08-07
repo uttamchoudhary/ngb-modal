@@ -11,7 +11,7 @@ npm install --save ngb-modal
 
 > For Angular[2,4,5], install older version
 ```
-npm install --save ng-custom-select@0.0.4
+npm install --save ngb-modal@0.0.4
 ```
 
 ## Demo
