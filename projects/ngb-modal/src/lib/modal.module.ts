@@ -6,6 +6,7 @@ import { ModalHeaderComponent } from "./modal-header.component";
 
 import { ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModalManager } from './modal.service';
 
 @NgModule({
   imports: [
@@ -14,4 +15,13 @@ import { CommonModule } from '@angular/common';
   declarations: [ModalComponent, ModalFooterComponent, ModalContentComponent, ModalHeaderComponent],
   exports: [ModalComponent, ModalFooterComponent, ModalContentComponent, ModalHeaderComponent]
 })
-export class ModalModule { }
+export class ModalModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: ModalModule,
+      providers: [
+        ModalManager
+      ]
+    };
+  }
+ }

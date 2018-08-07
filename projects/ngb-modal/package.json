@@ -1,6 +1,6 @@
 {
     "name": "ngb-modal",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Modal dialog for angular applications using bootstrap3",
     "author": {
         "name": "Uttam Choudhary",
@@ -20,13 +20,10 @@
     "homepage": "https://uttamchoudhary.github.io/ngb-modal/",
 
     "keywords": [
-        "angular 2",
-        "dropdown",
-        "ui select",
-        "datalist",
-        "select-box",
-        "custom-select",
-        "multi select"
+        "angular",
+        "modal",
+        "bootstrap",
+        "ngb"
     ],
     "peerDependencies": {
         "@angular/common": "^4.2.4",

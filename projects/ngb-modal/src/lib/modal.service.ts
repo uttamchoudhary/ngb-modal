@@ -1,8 +1,6 @@
 import { Injectable, ViewChild, ComponentFactoryResolver, ComponentRef, ViewContainerRef } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ModalManager {
 
   private modalHost: ViewContainerRef;

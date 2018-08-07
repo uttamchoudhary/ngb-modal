@@ -28,6 +28,17 @@ import { ModalModule } from 'ngb-modal';
   ],
 ```
 
+app.module.ts
+```ts
+import { ModalModule } from 'ngb-modal';
+
+@NgModule({
+  imports: [
+    ...
+    ModalModule.forRoot()
+  ],
+```
+
 Now Start using modal component in your components.
 
 your-component.component.html
