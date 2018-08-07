@@ -1,6 +1,6 @@
 {
     "name": "ngb-modal",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Modal dialog for angular applications using bootstrap3",
     "author": {
         "name": "Uttam Choudhary",
@@ -26,7 +26,7 @@
         "ngb"
     ],
     "peerDependencies": {
-        "@angular/common": "^4.2.4",
-        "@angular/core": "^4.2.4"
+        "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
     }
 }
