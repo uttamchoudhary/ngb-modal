@@ -1,6 +1,6 @@
 {
     "name": "ngb-modal",
-    "version": "0.0.4",
+    "version": "1.0.1",
     "description": "Modal dialog for angular applications using bootstrap3",
     "author": {
         "name": "Uttam Choudhary",

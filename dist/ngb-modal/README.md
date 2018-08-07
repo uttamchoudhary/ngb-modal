@@ -9,6 +9,11 @@ Please star the project if you found it useful.
 npm install --save ngb-modal
 ```
 
+> For Angular[2,4,5], install older version
+```
+npm install --save ng-custom-select@0.0.4
+```
+
 ## Demo
 
 Check working [Demo](https://uttamchoudhary.github.io/ngb-modal/). You can test and generate code snippet from demo.
@@ -25,17 +30,6 @@ import { ModalModule } from 'ngb-modal';
   imports: [
     ...
     ModalModule,
-  ],
-```
-
-app.module.ts
-```ts
-import { ModalModule } from 'ngb-modal';
-
-@NgModule({
-  imports: [
-    ...
-    ModalModule.forRoot()
   ],
 ```
 
