@@ -224,7 +224,7 @@ Any input property of your component can be passed to modalInstance returned by 
 * close : Method //Used to close any opened modal by passing the reference of that modal.
 * setDefaults : Method //to be called from root component to provide global configurations for all modals.
 * setRootViewContainerRef: Method //called if using separate component as modal. called from root component to set container for all modals at root level.
-    
+```
 
 ## Output
 
