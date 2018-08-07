@@ -1,38 +1,162 @@
-<button class="btn btn-primary" (click)="modal1.open()">open</button>
-<modal #modal1 title="input title">
-    <modal-header>
-        Modal 1
-    </modal-header>
+<loader></loader>
+<div class="page-header mt-2 mb-3">
+    <h1 class="text-center">Angular Modal <small class="text-muted">Powered by bootstrap</small></h1>
+</div>
 
+<div class="container">
+    <form novalidate [formGroup]="configForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label><input type="radio" name="size" formControlName="size" value="sm" > Small</label>
+                    <label><input type="radio" name="size" formControlName="size" value="md" > Medium</label>
+                    <label><input type="radio" name="size" formControlName="size" value="lg" > Large</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <div class="input-group">
+                        <input class="form-control" id="title" formControlName="title" aria-describedby="title" placeholder="Title of modal" />
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-exclamation-circle" [ngbPopover]="title" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></span>
+                        </div>
+                    </div>
+                    <ng-template #title>
+                        <span>{{CONSTANTS.TOOLTIP.TITLE}}</span>
+                    </ng-template>
+                </div>
+
+                <div class="form-group">
+                    <label for="modalClass">Modal Class</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="modalClass" formControlName="modalClass" placeholder="Modal class name">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-exclamation-circle" [ngbPopover]="modalClass" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></span>
+                        </div>
+                    </div>
+                    <ng-template #modalClass>
+                        <span>{{CONSTANTS.TOOLTIP.MODAL_CLASS}}</span>
+                    </ng-template>
+                </div>
+
+                <div class="form-group">
+                    <label for="backdropClass">Backdrop Class</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="backdropClass" formControlName="backdropClass" placeholder="Modal class name">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-exclamation-circle" [ngbPopover]="backdropClass" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></span>
+                        </div>
+                    </div>
+                    <ng-template #backdropClass>
+                        <span>{{CONSTANTS.TOOLTIP.BACKDROP_CLASS}}</span>
+                    </ng-template>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label>Hide Close Button <i class="fas fa-exclamation-circle" [ngbPopover]="hideCloseButton" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="right"></i></label>
+                        <ng-template #hideCloseButton><span>{{CONSTANTS.TOOLTIP.HIDE_CLOSE_BUTTON}}</span></ng-template>
+                    </div>
+                    <div class="col-md-1 m-l-60 switch">
+                        <label>
+                            <input type="checkbox" formControlName="hideCloseButton">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label>Centered <i class="fas fa-exclamation-circle" [ngbPopover]="centered" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></label>
+                    </div>
+                    <div class="col-md-1 m-l-61 switch">
+                        <label>
+                            <input type="checkbox" formControlName="centered">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                    <ng-template #centered>
+                        <span>{{CONSTANTS.TOOLTIP.CENTERED}}</span>
+                    </ng-template>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label>Backdrop <i class="fas fa-exclamation-circle" [ngbPopover]="backdrop" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></label>
+                    </div>
+                    <div class="col-md-1 m-l-61 switch">
+                        <label>
+                            <input type="checkbox" formControlName="backdrop">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                    <ng-template #backdrop>
+                        <span>{{CONSTANTS.TOOLTIP.BACKDROP}}</span>
+                    </ng-template>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label>Animation <i class="fas fa-exclamation-circle" [ngbPopover]="animation" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></label>
+                    </div>
+                    <div class="col-md-1 m-l-61 switch">
+                        <label>
+                            <input type="checkbox" formControlName="animation">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                    <ng-template #animation>
+                        <span>{{CONSTANTS.TOOLTIP.ANIMATION}}</span>
+                    </ng-template>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label>Keyboard Actions <i class="fas fa-exclamation-circle" [ngbPopover]="keyboard" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></label>
+                    </div>
+                    <div class="col-md-1 m-l-61 switch">
+                        <label>
+                            <input type="checkbox" formControlName="keyboard">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                    <ng-template #keyboard>
+                        <span>{{CONSTANTS.TOOLTIP.KEYBOARD}}</span>
+                    </ng-template>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label>Close on outside click <i class="fas fa-exclamation-circle" [ngbPopover]="closeOnOutsideClick" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></label>
+                    </div>
+                    <div class="col-md-1 m-l-61 switch">
+                        <label>
+                            <input type="checkbox" formControlName="closeOnOutsideClick">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                    <ng-template #closeOnOutsideClick>
+                        <span>{{CONSTANTS.TOOLTIP.CLOSE_ON_OUTSIDE_CLICK}}</span>
+                    </ng-template>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group mt-2">
+            <p class="hint-info text-primary"><em>*hover on <i class="fas fa-exclamation-circle"></i> icon for guide</em></p>
+            <button type="button" class="btn btn-primary d-flex mx-auto" [disabled]="!configForm.valid" (click)="asTemplate()">Try it out</button>
+        </div>
+    </form>
+</div>
+
+<modal #resultModal (onClose)="modalClose()">
     <modal-content>
-        Modal body content goes there.
+
     </modal-content>
-
     <modal-footer>
-        Modal footer content goes there.
-        <button class="btn btn-primary" (click)="asComponent2()">open1</button>
-
+        <button class="btn btn-success" (click)="resultModal.close()">close</button>
     </modal-footer>
 </modal>
-<button class="btn btn-primary" (click)="modal2.open()">open1</button>
-
-<modal #modal2>
-    <modal-header>
-        Modal header content goes there.
-    </modal-header>
-
-    <modal-content>
-        Modal body content goes there.
-    </modal-content>
-
-    <modal-footer>
-        Modal footer content goes there.
-    </modal-footer>
-</modal>
-
-<button class="btn btn-primary" (click)="asComponent()">As Comp</button>
-<button class="btn btn-primary" (click)="asComponent2()">As Comp2</button>
-
-<button class="btn btn-primary" (click)="asTemplate()">template</button>
-
-<button class="btn btn-primary" (click)="close()">close</button>

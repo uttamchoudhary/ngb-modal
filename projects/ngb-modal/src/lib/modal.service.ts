@@ -37,7 +37,8 @@ export class ModalManager {
     this.modalHost = ref;
   }
 
-  open(modalInstance, config){
+  open(modalInstance, settings?){
+    let config = settings || {};
     if(typeof modalInstance === "object"){
       modalInstance.init(config);
       modalInstance.open();

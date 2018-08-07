@@ -8,12 +8,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { SharedModule } from './shared/shared.module';
 
-import { AppComponent, ModalComp, ModalComp2 } from './app.component';
+import { AppComponent } from './app.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, ModalComp, ModalComp2
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +28,5 @@ import { AppComponent, ModalComp, ModalComp2 } from './app.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ModalComp, ModalComp2]
 })
 export class AppModule { }
