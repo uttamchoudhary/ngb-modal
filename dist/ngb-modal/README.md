@@ -1,6 +1,6 @@
 # Angular Bootstrap Modal
 
-> Modal dialog for angular applications using bootstrap3. If used without bootstrap, please add appropriate styles for modal to work properly. Raise an issue on github if found any.
+> Modal dialog for angular 6 applications using bootstrap 3. If used without bootstrap, please add appropriate styles for modal to work properly. Raise an issue on github if found any.
 Please star the project if you found it useful.
 
 ## Installation

@@ -7,7 +7,7 @@ export declare class ModalManager {
     defaults: ModalConfig;
     setDefaults(config: ModalConfig): void;
     setRootViewContainerRef(ref: any): void;
-    open(modalInstance: any, config: any): any;
+    open(modalInstance: any, settings?: any): any;
     close(modalInstance: any): void;
     closeFactory(): () => void;
 }
