@@ -96,7 +96,7 @@ export class ModalComponent implements OnInit {
     document.body.classList.add("modal-open");
     this.isOpened = true;
     window.setTimeout(() => {
-      this.modalRoot.nativeElement.classList.add('in');
+      this.modalRoot.nativeElement.classList.add('show');
       this.modalRoot.nativeElement.focus();
       this.onOpen.emit();
     }, 100);
@@ -106,7 +106,7 @@ export class ModalComponent implements OnInit {
     if (!this.isOpened)
       return;
 
-    this.modalRoot.nativeElement.classList.remove('in');
+    this.modalRoot.nativeElement.classList.remove('show');
     document.body.removeChild(this.backdropElement);
     document.body.className = document.body.className.replace(/modal-open\b/, "");
     window.setTimeout(() => {
@@ -122,7 +122,7 @@ export class ModalComponent implements OnInit {
   private createBackDrop() {
     this.backdropElement = document.createElement("div");
     this.backdropElement.classList.add("fade");
-    this.backdropElement.classList.add("in");
+    this.backdropElement.classList.add("show");
     if (this.settings && this.settings.backdrop && this.settings.backdrop == true) {
       this.backdropElement.classList.add(this.settings.backdropClass);
     }

@@ -7,10 +7,24 @@
     <form novalidate [formGroup]="configForm">
         <div class="row">
             <div class="col-md-6">
-                <div class="form-group">
-                    <label><input type="radio" name="size" formControlName="size" value="sm" > Small</label>
-                    <label><input type="radio" name="size" formControlName="size" value="md" > Medium</label>
-                    <label><input type="radio" name="size" formControlName="size" value="lg" > Large</label>
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <label>Size</label>
+                    </div>
+                    <div class="col m-l-32">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="small" name="size" formControlName="size" value="sm" class="custom-control-input">
+                            <label class="custom-control-label" for="small">Small</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="medium" name="size" formControlName="size" value="md" class="custom-control-input">
+                            <label class="custom-control-label" for="medium">Medium</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="large" name="size" formControlName="size" value="lg" class="custom-control-input">
+                            <label class="custom-control-label" for="large">Large</label>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -53,11 +67,11 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <label>Hide Close Button <i class="fas fa-exclamation-circle" [ngbPopover]="hideCloseButton" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="right"></i></label>
                         <ng-template #hideCloseButton><span>{{CONSTANTS.TOOLTIP.HIDE_CLOSE_BUTTON}}</span></ng-template>
                     </div>
-                    <div class="col-md-1 m-l-60 switch">
+                    <div class="col-md-1 m-l-36 switch">
                         <label>
                             <input type="checkbox" formControlName="hideCloseButton">
                             <span class="lever"></span>
@@ -69,10 +83,10 @@
 
             <div class="col-md-6">
                 <div class="form-group row">
-                    <div class="col-md-3">
-                        <label>Centered <i class="fas fa-exclamation-circle" [ngbPopover]="centered" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></label>
+                    <div class="col-md-6">
+                        <label>Vertically Centered <i class="fas fa-exclamation-circle" [ngbPopover]="centered" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></label>
                     </div>
-                    <div class="col-md-1 m-l-61 switch">
+                    <div class="col-md-1 m-l-36 switch">
                         <label>
                             <input type="checkbox" formControlName="centered">
                             <span class="lever"></span>
@@ -84,10 +98,10 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <label>Backdrop <i class="fas fa-exclamation-circle" [ngbPopover]="backdrop" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></label>
                     </div>
-                    <div class="col-md-1 m-l-61 switch">
+                    <div class="col-md-1 m-l-36 switch">
                         <label>
                             <input type="checkbox" formControlName="backdrop">
                             <span class="lever"></span>
@@ -99,10 +113,10 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <label>Animation <i class="fas fa-exclamation-circle" [ngbPopover]="animation" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></label>
                     </div>
-                    <div class="col-md-1 m-l-61 switch">
+                    <div class="col-md-1 m-l-36 switch">
                         <label>
                             <input type="checkbox" formControlName="animation">
                             <span class="lever"></span>
@@ -114,10 +128,10 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <label>Keyboard Actions <i class="fas fa-exclamation-circle" [ngbPopover]="keyboard" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></label>
                     </div>
-                    <div class="col-md-1 m-l-61 switch">
+                    <div class="col-md-1 m-l-36 switch">
                         <label>
                             <input type="checkbox" formControlName="keyboard">
                             <span class="lever"></span>
@@ -129,10 +143,10 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <label>Close on outside click <i class="fas fa-exclamation-circle" [ngbPopover]="closeOnOutsideClick" popoverClass="custom-popover" triggers="mouseenter:mouseleave" placement="top"></i></label>
                     </div>
-                    <div class="col-md-1 m-l-61 switch">
+                    <div class="col-md-1 m-l-36 switch">
                         <label>
                             <input type="checkbox" formControlName="closeOnOutsideClick">
                             <span class="lever"></span>
@@ -147,14 +161,20 @@
         </div>
         <div class="form-group mt-2">
             <p class="hint-info text-primary"><em>*hover on <i class="fas fa-exclamation-circle"></i> icon for guide</em></p>
-            <button type="button" class="btn btn-primary d-flex mx-auto" [disabled]="!configForm.valid" (click)="asTemplate()">Try it out</button>
+            <button type="button" class="btn btn-primary d-flex mx-auto" [disabled]="!configForm.valid" (click)="openModal()">Try it out</button>
         </div>
     </form>
 </div>
 
 <modal #resultModal (onClose)="modalClose()">
     <modal-content>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-light" type="button" (click)="copyToClipboard()">copy</button>
+        </div>
 
+        <pre>
+            <p class="m-0">{{config}}</p>
+        </pre>
     </modal-content>
     <modal-footer>
         <button class="btn btn-success" (click)="resultModal.close()">close</button>

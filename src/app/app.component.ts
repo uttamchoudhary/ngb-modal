@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   private CONSTANTS = CONSTANTS;
 
   configForm : FormGroup;
+  config;
   constructor(private modal: ModalManager, private _fb: FormBuilder) {
   }
 
@@ -33,31 +34,23 @@ export class AppComponent implements OnInit {
     });
   }
 
+  openModal(){
+    this.prepareCodeSnippets();
+    this.modal.open(this.resultModal, this.configForm.value);
+  }
+
+  prepareCodeSnippets(){
+    this.config = `config = ${JSON.stringify(this.configForm.value, null, 4)};`
+  }
+
+  copyToClipboard(){
+    var textArea = document.createElement("textarea");
+    textArea.value = JSON.stringify(this.configForm.value, null, 4);
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+  }
+
   
-
-  asTemplate(){
-    let ref = this.modal.open(this.resultModal, {
-      title: "abcd",
-      size: "abc",
-      modalClass: 'mymodal',
-      hideCloseButton: false,
-      centered: false,
-      backdrop: true,
-      animation: true,
-      keyboard: false,
-      closeOnOutsideClick: true,
-      backdropClass: "modal-backdrop"
-    });
-    ref.onOpen.subscribe((res) => {
-      console.log("opened template");
-    })
-    ref.onClose.subscribe((res) => {
-      console.log("closed template");
-    })
-
-  }
-
-  close(ref){
-    this.modal.close(ref);
-  }
 }

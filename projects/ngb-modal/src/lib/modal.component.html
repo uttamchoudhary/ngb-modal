@@ -2,9 +2,9 @@
     <div [class]="'modal-dialog modal-'+ settings?.size + ' ' + settings?.modalClass" (click)="preventClosing($event)" [ngClass]="{'modal-dialog-centered': settings?.centered}">
         <div class="modal-content" tabindex="0" *ngIf="isOpened">
             <div class="modal-header">
-                <button *ngIf="!settings?.hideCloseButton" type="button" class="close" [attr.aria-label]="settings?.cancelButtonLabel || 'Close'" (click)="close()"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" *ngIf="settings?.title">{{ settings?.title }}</h4>
                 <ng-content select="modal-header"></ng-content>
+                <button *ngIf="!settings?.hideCloseButton" type="button" class="close" [attr.aria-label]="settings?.cancelButtonLabel || 'Close'" (click)="close()"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <ng-content select="modal-content"></ng-content>

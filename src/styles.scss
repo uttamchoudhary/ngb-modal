@@ -22,24 +22,6 @@
     background: #555;
 }
 
-.fade.in {
-    opacity: 1;
-}
-
-.modal.in .modal-dialog {
-    -webkit-transform: translate(0, 0);
-    -o-transform: translate(0, 0);
-    transform: translate(0, 0);
-}
-
-.modal-backdrop .fade .in {
-    opacity: 0.5 !important;
-}
-
-.modal-backdrop.fade {
-    opacity: 0.5 !important;
-}
-
 .switch {
     label {
         cursor: pointer;
@@ -89,6 +71,14 @@
 
 .m-l-60 {
     margin-left: 60%;
+}
+
+.m-l-36 {
+    margin-left: 36%;
+}
+
+.m-l-32 {
+    margin-left: 32%;
 }
 
 .custom-popover {
