@@ -1,4 +1,4 @@
-import { Injectable, ComponentFactoryResolver, NgModule, Component, Input, Output, EventEmitter, ViewChild, defineInjectable, inject } from '@angular/core';
+import { Injectable, ComponentFactoryResolver, Component, Input, Output, EventEmitter, ViewChild, NgModule, defineInjectable, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /**
